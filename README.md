@@ -12,6 +12,8 @@
     SSH_PORT:    The port that is free on your machine which you want bind the ssh service of apache container.
     This Port will determine how you will access ssh into apache container. eg: if SSH_PORT var is 2226 then to ssh into
     apache container type `ssh root@127.0.0.1 -p 2226`
+    
+    PHP_VERSION: The version of php that you want to be installed in the container. eg 7.2,7.4,8.0 etc
 
     VHOSTS_DIR: Path for the directory where you have your apache's virtual hosts conf files.
 
