@@ -3,10 +3,12 @@ services:
   apache-php7.2:
     build:
       dockerfile: apache-php7.2.Dockerfile
+      args:
+       - PHP_VERSION=${PHP_VERSION}
       context: .
     restart: always
     environment:
-     - MyVar=MyVal
+     - PHP_VERSION=${PHP_VERSION}
     volumes:
      - "${VHOSTS_DIR}:/etc/apache2/sites-available"
      - "${PROJECTS_PATH}:/var/www"

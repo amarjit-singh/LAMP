@@ -16,9 +16,12 @@ apt install software-properties-common -y
 add-apt-repository ppa:ondrej/php -y
 apt update
 echo $Color_Off
-
 echo -e "$Green \n Installing Apache, PHP and PHP extensions"
-apt install apache2 libapache2-mod-php7.2 php7.2 php7.2-mysql php7.2-mbstring php7.2-curl php7.2-common php7.2-dev php7.2-gd php7.2-imagick php7.2-mcrypt php7.2-ps php7.2-pspell php7.2-recode php7.2-xsl php7.2-json php7.2-cgi php7.2-ldap php7.2-ldap -y
+INSTALL_PKGS="apache2 libapache2-mod-php${PHP_VERSION} php${PHP_VERSION} php${PHP_VERSION}-mysql php${PHP_VERSION}-mbstring php${PHP_VERSION}-curl php${PHP_VERSION}-common php${PHP_VERSION}-dev php${PHP_VERSION}-gd php${PHP_VERSION}-imagick php${PHP_VERSION}-mcrypt php${PHP_VERSION}-ps php${PHP_VERSION}-pspell php${PHP_VERSION}-recode php${PHP_VERSION}-xsl php${PHP_VERSION}-json php${PHP_VERSION}-cgi php${PHP_VERSION}-ldap php${PHP_VERSION}-ldap zip"
+for i in $INSTALL_PKGS; do
+  echo "Installing: $i"
+  apt install -y $i
+done
 echo $Color_Off
 
 ## TWEAKS and Settings
